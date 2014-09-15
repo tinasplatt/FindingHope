@@ -34,7 +34,7 @@ body {
 }
 @media (min-width: 768px) {
 	.carousel {
-		height: 275px;
+		height: 350px;
 	}
 }
 /*@media (min-width: 992px) {
@@ -51,7 +51,6 @@ body {
 	background: rgba(0,0,0,0.5);
 	padding: 5px 10px;
 	margin-bottom: 40px;
-	display: none;
 }
 .carousel-caption h3 {
 	font-size: 16pt;
@@ -87,7 +86,7 @@ body {
 /* Declare heights because of positioning of img element */
 @media (min-width: 768px) {
 	.carousel .item {
-		height: 275px;
+		height: 350px;
 	}
 }
 
@@ -98,6 +97,7 @@ body {
 }*/
 
 .carousel-inner .item > div {
+/*.carousel-inner .carousel-image*/
     width: 100%;
     height: 100%;
     background-position: center;
