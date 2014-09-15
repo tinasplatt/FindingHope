@@ -1,5 +1,5 @@
 <!-- Half Page Image Background Carousel Header -->
-<header id="myCarousel" class="carousel slide">
+<header id="myCarousel" class="carousel slide" ng-controller="CarouselController">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -8,7 +8,16 @@
     </ol>
     <!-- Wrapper for Slides -->
     <div class="carousel-inner">
-        <div class="item active">
+    <div class="item" ng-repeat="slide in slides">
+        <div class="carousel-image" data-slide-contents="{{slide}}"></div>
+        <div class="container">
+            <div class="carousel-caption">
+                <h3 class="quote">&ldquo;{{slide.caption.quote}}&rdquo;</h3>
+                <h3 class="author">- {{slide.caption.author}}</h3>
+            </div>
+        </div>
+    </div>
+<!--         <div class="item active">
             <div class="kids_running"></div>
             <div class="container">
                 <div class="carousel-caption">
@@ -34,7 +43,7 @@
                     <h3 class="author">- Warren Barfield</h3>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- Controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
