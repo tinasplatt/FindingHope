@@ -7,10 +7,15 @@ findingHope.config(function($logProvider, $routeProvider){
             controller: 'MainPageCtrl'
         })
         .when('/about',{
-            templateUrl: 'template/about.html'
+            templateUrl: 'template/about.html',
+            controller: 'AboutPageCtrl'
+        })
+        .when('/coming_soon',{
+            templateUrl: 'template/soon.html',
+            controller: 'ComingSoonPageCtrl'
         })
         .otherwise({
-            redirectTo:'/'
+            redirectTo:'/coming_soon'
         });
 });
 
@@ -33,7 +38,7 @@ findingHope.controller('MainPageCtrl', function($scope){
         },{
             image: '/images/girl_bw.jpg',
             caption: {
-                quote:"Love is not a fight. But, it's something worth fighting for",
+                quote:"Love is not a fight &#8212; it's something worth fighting for",
                 author:"Warren Barfield"
             } 
         }]
@@ -45,6 +50,38 @@ findingHope.controller('MainPageCtrl', function($scope){
         video.show(1)
     })
     console.log("MP $scope: %o", $scope);
+});
+
+
+findingHope.controller('AboutPageCtrl', function($scope){
+    $scope.carousel = {
+        isSmall: true,
+        slides:[{
+            image: '/images/kids_running_bw.jpg',
+            style: {'background-position':'50% 40%'}
+        },{
+            image: '/images/kids_beach_bw.jpg',
+            style: {'background-position':'50% 60%'}
+        },{
+            image: '/images/girl_bw.jpg' 
+        }]
+    };
+});
+
+
+findingHope.controller('ComingSoonPageCtrl', function($scope){
+        $scope.carousel = {
+            isSmall: true,
+            slides:[{
+                image: '/images/kids_running_bw.jpg',
+                style: {'background-position':'50% 40%'}
+            },{
+                image: '/images/kids_beach_bw.jpg',
+                style: {'background-position':'50% 60%'}
+            },{
+                image: '/images/girl_bw.jpg' 
+            }]
+        };
 });
 
 findingHope.controller('CarouselController', function($scope) {
@@ -75,6 +112,7 @@ findingHope.controller('CarouselController', function($scope) {
         return itemDiv
     }
     var slides = $scope.$parent.carousel.slides || [];
+    var isSmall = $scope.$parent.carousel.isSmall || false;
     var carouselContainer = $('.carousel-inner');
     slides.forEach(function(slide, idx) {
         var slideDiv = __createCarouselSlide(slide)
@@ -83,9 +121,11 @@ findingHope.controller('CarouselController', function($scope) {
         }
         carouselContainer.append(slideDiv)
     });
-    $('.carousel').carousel({
-        interval: 5000
-    });
+    var carouselDiv = $('.carousel');
+    if (isSmall) {
+        carouselDiv.addClass('carousel-sm');
+    }
+    carouselDiv.carousel({interval: 5000});
 });
 
 
