@@ -1,14 +1,9 @@
-/*global module:false*/
-// files:["site/**/*.js", "site/**/*.css", "site/**/*.html"],
-// tasks: ["default"],
-// options: {
-// 	spawn: false,
-//  livereload: 35729
-//}
 module.exports = function(grunt) {
 	// Project configuration.
+	var siteDir = grunt.option("dir") || "app";
+	console.log("siteDir: %s", siteDir);
 	grunt.initConfig({
-		siteDir: "app", 
+		siteDir: siteDir, 
 		watch: {
 			livereload:{
 				options:{

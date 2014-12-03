@@ -58,7 +58,7 @@ findingHope.controller('AboutPageCtrl', function($scope){
         isSmall: true,
         slides:[{
             image: '/images/kids_running_bw.jpg',
-            style: {'background-position':'50% 40%'}
+            style: {'background-position':'50% 35%'}
         },{
             image: '/images/kids_beach_bw.jpg',
             style: {'background-position':'50% 60%'}
